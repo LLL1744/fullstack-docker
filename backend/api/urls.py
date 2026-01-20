@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import hello, secret
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .views import SecretView
 
 urlpatterns = [
-    path('hello/', hello),
-    path('secret/', secret),
+    path("api/token/", TokenObtainPairView.as_view()),
+    path("api/secret/", SecretView.as_view()),
 ]
