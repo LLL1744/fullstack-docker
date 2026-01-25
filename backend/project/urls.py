@@ -19,10 +19,10 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from rest_framework_simplejwt.views import TokenObtainPairView
-from api.views import SecretView
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path("api/token/", TokenObtainPairView.as_view()),
-    path("api/secret/", SecretView.as_view()),
+    path("admin/", admin.site.urls),
+    path("api/", include("api.urls")),
 ]
